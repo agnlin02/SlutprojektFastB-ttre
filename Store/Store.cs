@@ -1,33 +1,49 @@
+using System.ComponentModel;
 using System.Net.Http.Headers;
 using System;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace Store
 {
     public class Store
     {
-        public void BeginGame() //  < alt + 62       > alt +60         | alt + 124
+
+        
+
+        //new Food("Apple", 150, "A granny smith apple"), new Sword("Excalibur", 149, "This legendary sword from myth makes you the rightful ruler of Great Britain and all her provinces.")
+        List<Weapon> weapons = new List<Weapon>(); // All swords in the shelves
+        List<Food> food = new List<Food>(); // All food in the shelves
+
+        Dictionary<Item, int> itemPrices = new Dictionary<Item, int>(); // list for all items
+        List<string> shelves = new List<string>() {"Food", "Weapons"}; // list for all items
+
+        public void BeginGame() //  < alt + 60        > alt + 62         | alt + 124
         {
+            Console.WriteLine("This is a store. Here you can buy food. On your 5th, 8th and 10th purchase you'll get a discount.");
+            Console.WriteLine("These are the shelves you can choose between:");
+        
+            for (int i = 0; i < shelves.Count; i++)
+            {
+                System.Console.WriteLine((i+1) + ". " + shelves[i]);
+            }
 
-            System.Console.WriteLine("This is a store. Here you can buy food. On your 5th purchas youll get a discount");
-            // y[1.0]= 
-            // for (int x = 0; x < 10; x++)
-            // {
-            //     for (int y = 0; y < 10; y++)
-            //     {
-            //         System.Console.Write(".");
-            //     }
-            //     System.Console.WriteLine();
-
-            // }
-            // Console.ReadLine(); 
-            // //två random generators som tillsamans har i som kan antingen vara 1, -1 eller 0. 
-            //Med dessa kan man sedan addera, subdrahera eller ha kvar samma del som. Man har en lista med kordinater. 
-            // console.writeline([x + i, y + 0]); eller console.writline(x + 0, y + i]); 
+            Console.WriteLine("Which shelf do you want to look at?");
+            string svar = Console.ReadLine();
 
 
-            
+            if (svar.ToLower() == "weapons" || svar.ToLower() == "1")
+            {
+                // Call display information for every sword
+
+            }
+
+            else if (svar.ToLower() == "food" || svar.ToLower() == "2")
+            {
+                // Call display information for every food item
+            }
         }
-
-
     }
 }
+
+// shift alt F

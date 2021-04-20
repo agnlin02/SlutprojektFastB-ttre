@@ -8,6 +8,8 @@ namespace Store
         {
             Store store = new Store();
             store.BeginGame();
+
+            
             
         }
     }
