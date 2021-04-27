@@ -5,9 +5,11 @@ namespace Store
 {
     public class Food : Item
     {
-        public Dictionary<string, int> foodPrice = new Dictionary<string, int>(); //Created a dictionary containing both the prices and the names of the items
-        public Food(string name, string description) : base(name, description) {
-            
+        Store store = new Store();
+        public Dictionary<string, double> foodPrice = new Dictionary<string, double>(); //Created a dictionary containing both the prices and the names of the items
+        public Food(string name, string description) : base(name, description)
+        {
+
         } // Constructor inheriting from base class (Item)
 
         public string Name { get => name; set => name = value; } //Property for encapsulation
@@ -23,8 +25,10 @@ namespace Store
             System.Console.WriteLine("DU KAN ÄVEN SKRIVA DET HÄR MER FINT ÄN VAD JAG GJORT HÄR");
             // Such information much wow
         }
-         public void AddPrice(int price)
+        public void AddPrice(int firstPrice, Queue<double> discount)
         {
+
+            double price = firstPrice * discount.Peek();
             foodPrice.Add(name, price);
         }
     }

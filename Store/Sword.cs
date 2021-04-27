@@ -5,13 +5,16 @@ namespace Store
 {
     public class Sword : Weapon
     {
-        public Dictionary<string, int> weponPrice = new Dictionary<string, int>(); //Created a dictionary containing both the prices and the names of the items
+        Store store = new Store();
+        public Dictionary<string, double> weaponPrice = new Dictionary<string, double>(); //Created a dictionary containing both the prices and the names of the items
+
         // Gör Sword som ärver från Weapon
         // Lägg till konstruktor
         // Lägg till properties
         // 
-        public Sword(string name, string description) : base(name, description) {
-            
+        public Sword(string name, string description) : base(name, description)
+        {
+
         } // Constructor inheriting from base class (Item)
 
         public string Name { get => name; set => name = value; } //Property for encapsulation
@@ -27,9 +30,22 @@ namespace Store
             // Such information much wow
         }
 
-        public void AddPrice(int price)
+
+
+        public void AddPrice(double firstPrice, Queue<double> discount)
         {
-            weponPrice.Add(name, price);
+            if (discount.Contains(1))
+            {
+                double price = firstPrice * discount.Peek();
+                discount.Dequeue();
+                weaponPrice.Add(name, price);
+            }
+            else
+            {
+                double price = firstPrice;
+                weaponPrice.Add(name, price);
+            }
+
         }
     }
 }
