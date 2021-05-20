@@ -15,6 +15,8 @@ namespace Store
         List<string> shelves = new List<string>() { "Food", "Weapons" }; // list för alla items
 
         Queue<double> discount = new Queue<double>();
+        Player player = new Player();
+
         public void Discound() // En metod som gör att man kan få rea efter ett specefikt antal köp.
         {
 
@@ -49,6 +51,7 @@ namespace Store
                 Console.WriteLine("This is a store. Here you can buy food. On your 3rd, 6th and 10th purchase you'll get a discount.");
 
                 System.Console.WriteLine("Money: " + money);
+                System.Console.WriteLine("Inventory: "); player.InventoryItems();
                 System.Console.WriteLine("Press 'enter' to continue");
                 Console.ReadLine();
                 Console.WriteLine("These are the shelves you can choose between:");
@@ -125,7 +128,9 @@ namespace Store
             {
                 money -= tomato.foodPrice["Green Tomato"]; //money must be on the right side of the equation...because not math
                 System.Console.WriteLine("You now have " + money + "$ left");
+                player.inventory.Add(tomato); //Två instanser som reagerar med varandra
                 System.Console.WriteLine("Do you want to buy something else? [y/n]");
+
             }
             else if (answer.ToLower() == "n")
             {
@@ -153,7 +158,9 @@ namespace Store
             {
                 money -= sword.weaponPrice["Excalibur"]; //money must be on the right side of the equation...because not math
                 System.Console.WriteLine("You now have " + money + "$ left");
+                player.inventory.Add(sword); //två instanser som interagerar med varandra. Sword som finns i klassen sword läggs till i inventoryt som finns i klassen player.
                 System.Console.WriteLine("Do you want to buy something else? [y/n]");
+
             }
             else if (answer.ToLower() == "n")
             {

@@ -5,7 +5,7 @@ namespace Store
 {
     public class Food : Item
     {
-        Store store = new Store();
+        //    Store store = new Store();
         public Dictionary<string, double> foodPrice = new Dictionary<string, double>(); //Skapat en dictionery som innehåller bpde priset och namnet på föremålet som kan köpas.
         public Food(string name, string description) : base(name, description)
         {
@@ -24,7 +24,7 @@ namespace Store
         //     System.Console.WriteLine("ANDRA MATIGA GREJER");
         //     // Such information much wow
         // }
-        public void AddPrice(int firstPrice, Queue<double> discount) //samma som i sword.
+        public override void AddPrice(int firstPrice, Queue<double> discount) //samma som i sword.
         {
 
             if (discount.Contains(1))

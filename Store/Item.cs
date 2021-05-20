@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
@@ -17,6 +17,17 @@ namespace Store
         }
         //public abstract void DisplayInformation();
         //public abstract void Buy();
+
+        public string GetName()
+        {
+
+            return name;
+        }
+
+        public virtual void AddPrice(int firstPrice, Queue<double> discount)
+        {
+
+        }
     }
 
 }
